@@ -131,3 +131,11 @@ def test_kruskals_minimum_spanning_tree(setup_graph):
 	gr.add_edge(("c", "d"), 2)
 	min_cost = kruskal_MST(gr)
 	assert min_cost == 6
+
+def test_is_graph_cyclic(setup_graph):
+	gr = setup_graph
+	assert is_graph_cyclic(gr) == True
+	gr = graph()
+	gr.add_nodes(["0", "1", "2", "3"])
+	gr.add_edges([("0", "1"), ("1", "2"), ("2", "3")])
+	assert is_graph_cyclic(gr) == False

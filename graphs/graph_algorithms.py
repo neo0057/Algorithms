@@ -264,3 +264,24 @@ def get_max_spacing(clusters):
                 if spacing < min:
                     min = spacing
     return min
+
+def is_graph_cyclic(gr):
+    uf = UnionFind()
+    edges_explored = set()
+    for node in gr.nodes():
+        uf.insert(node, node)
+    for edge in gr.edges():
+        if edge in edges_explored:
+            continue
+        node, neighbor = edge
+        edges_explored.add(edge)
+        edges_explored.add((neighbor, node))
+
+        x = uf.get_leader(node)
+        y = uf.get_leader(neighbor)
+        if x == y:
+            return True
+        uf.make_union(x, y)
+    return False
+        
+        
