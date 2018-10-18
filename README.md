@@ -1,3 +1,5 @@
+![Build Status](https://travis-ci.com/manishrw/Algorithms.svg?branch=master)
+
 Algorithms in Python
 ======
 
